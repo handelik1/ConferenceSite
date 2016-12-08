@@ -1,0 +1,34 @@
+<script>
+	function submitCheck(){
+                        var d = new Date();
+                         var month = d.getMonth()
+                         var year = d.getFullYear()
+                         month = month + 1;
+                          month = month + "";
+                          if (month.length == 1)
+                          {
+                           month = "0" + month;
+                          }
+                         year = year.toString().substr(2,2);
+			if(document.getElementById("number").value.length != 16){
+			alert("Invalid Credit Card Number");
+    		        return false;
+		       }
+                       else if(document.getElementById("month").value > 12){
+                       alert("Invalid Expiration Month");
+                       return false;
+                      }
+                       else if(document.getElementById("year").value < year){
+                       alert("Invalid Expiration Year");
+                       return false;
+                      }
+                       else if(document.getElementById("year").value == year && document.getElementById("month").value < month || isNaN(document.getElementById("year").value) || isNaN(document.getElementById("month").value) || document.getElementById("month").value < 1 || document.getElementById("year").value < 1){
+                       alert("Invalid Expiration Date");
+                       return false;
+                      }
+                      else{
+                       return true;
+  }
+
+	}
+</script>
